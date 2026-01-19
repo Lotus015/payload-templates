@@ -344,3 +344,15 @@ Learnings:
 - npm pack output shows tarball contents: 5 files totaling 17.9 kB unpacked
 - Did NOT run npm publish per acceptance criteria - left for user to do manually
 - Test passed: cd cli && npm pack --dry-run && test -f PUBLISHING.md
+
+=== Iteration 25 - S25 - 2026-01-19 ===
+Status: COMPLETE
+Learnings:
+- Testing documentation should cover setup prerequisites (Node.js, pnpm, PostgreSQL)
+- Multiple PostgreSQL installation options: local, Docker, cloud databases (Neon, Supabase, Vercel)
+- Verification checklists with checkboxes help users track testing progress
+- Troubleshooting section is essential - covers common issues: DB connection, missing env vars, port conflicts
+- Template testing workflow: lint → typecheck → build → dev → seed → admin → frontend
+- CLI testing before publish uses `node cli/bin/index.js`, after publish uses `npx payload-templates`
+- Comprehensive guide at 550+ lines covers all acceptance criteria
+- Test passed: test -f TESTING.md

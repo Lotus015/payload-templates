@@ -7,6 +7,7 @@ import { handleServerFunctions, RootLayout } from '@payloadcms/next/layouts'
 import React from 'react'
 
 import { importMap } from './admin/importMap'
+import '@payloadcms/next/css'
 import './custom.scss'
 
 type Args = {
