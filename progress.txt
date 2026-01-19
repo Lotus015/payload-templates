@@ -92,3 +92,33 @@ Learnings:
 - Accordion animations defined via @keyframes in @theme inline block
 - lib/utils.ts cn() function combines clsx and tailwind-merge for class merging
 - Test passed: cd templates/premium && pnpm build
+
+=== Iteration 9 - S9 - 2026-01-19 ===
+Status: COMPLETE
+Learnings:
+- Hex to HSL conversion: Navy #1a1f36 → HSL 225 37% 16%, Gold #d4af37 → HSL 44 64% 52%
+- Tailwind v4 font families defined in @theme inline block as --font-sans, --font-serif, etc.
+- next/font/google fonts use `variable` prop to create CSS variables (--font-playfair, --font-inter)
+- Font variables must be applied to html element via className for Tailwind to access them
+- CSS variables in @layer base :root and .dark enable proper dark/light mode switching
+- Premium theme colors extend shadcn/ui's base color system (primary=navy, secondary/accent=gold)
+- Extended color palette (--premium-navy, --premium-gold, --premium-cream) mapped in @theme inline for Tailwind utility classes
+- antialiased class on body provides smoother font rendering
+- Pattern: Keep base shadcn color mappings intact, add theme-specific colors alongside
+- Test passed: cd templates/premium && pnpm build
+
+=== Iteration 10 - S10 - 2026-01-19 ===
+Status: COMPLETE
+Learnings:
+- Header component uses 'use client' for Sheet state management (useState for mobile menu)
+- Payload getPayload() with config import works for Server Components data fetching
+- Navigation items dynamically fetched from Services collection using payload.find()
+- Site settings fetched via payload.findGlobal({ slug: 'site-settings' })
+- MainLayout is async Server Component that fetches and passes data to client Header/Footer
+- Mobile-responsive achieved with lg: breakpoint (hidden lg:flex, lg:hidden patterns)
+- Sheet component from shadcn/ui provides mobile menu drawer functionality
+- NavigationMenuTrigger + NavigationMenuContent create dropdown menus for services
+- Pattern: Use try/catch in getLayoutData() with fallback defaults for build without DB
+- Type assertions needed when extracting Payload data (e.g., service.title as string)
+- Barrel export (layout/index.ts) maintains clean import pattern from previous stories
+- Test passed: cd templates/premium && pnpm build
