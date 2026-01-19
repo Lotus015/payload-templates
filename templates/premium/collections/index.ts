@@ -1,3 +1,7 @@
+export { BlogPosts } from './BlogPosts'
+export { ContactSubmissions } from './ContactSubmissions'
 export { Media } from './Media'
 export { Pages } from './Pages'
 export { Services } from './Services'
+export { Team } from './Team'
+export { Testimonials } from './Testimonials'
