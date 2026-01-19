@@ -9,7 +9,8 @@
     "start": "next start",
     "lint": "next lint",
     "typecheck": "tsc --noEmit",
-    "generate:types": "payload generate:types"
+    "generate:types": "payload generate:types",
+    "seed": "tsx scripts/seed.ts"
   },
   "dependencies": {
     "@payloadcms/db-postgres": "^3.0.0",
@@ -42,6 +43,7 @@
     "postcss": "^8.5.0",
     "sass": "^1.83.0",
     "tailwindcss": "^4.0.0",
+    "tsx": "^4.7.0",
     "typescript": "^5.7.0"
   }
 }
