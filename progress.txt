@@ -76,3 +76,19 @@ Learnings:
 - Select field type with options array provides dropdown UI in admin
 - Pattern continued: barrel export (globals/index.ts) keeps imports clean
 - Test passed: cd templates/premium && pnpm build
+
+=== Iteration 8 - S8 - 2026-01-19 ===
+Status: COMPLETE
+Learnings:
+- shadcn/ui with Tailwind v4 requires @theme inline block for color mapping
+- Tailwind v4 uses hsl() wrapper for CSS variable colors in @theme inline
+- components.json config uses "new-york" style and "rsc": true for React Server Components
+- Radix UI primitives work well with React 19 and Next.js 16
+- CSS variables for shadcn/ui colors set in @layer base :root and .dark
+- Manual component installation preferred over CLI for full control
+- Dependencies needed: clsx, tailwind-merge, class-variance-authority, lucide-react
+- Radix packages for components: @radix-ui/react-accordion, dialog, label, navigation-menu, separator, slot
+- Form component requires react-hook-form, @hookform/resolvers, and zod
+- Accordion animations defined via @keyframes in @theme inline block
+- lib/utils.ts cn() function combines clsx and tailwind-merge for class merging
+- Test passed: cd templates/premium && pnpm build
