@@ -1,7 +1,7 @@
 {
   "name": "payload-templates",
-  "version": "0.0.1",
-  "description": "CLI tool to create law firm website templates using Next.js, React, Payload CMS, and shadcn/ui",
+  "version": "1.0.0",
+  "description": "CLI tool to create law firm website templates using Next.js 16, React 19, Payload CMS 3.x, and shadcn/ui",
   "type": "module",
   "bin": {
     "payload-templates": "./bin/index.js"
@@ -13,14 +13,39 @@
   },
   "keywords": [
     "payload",
+    "payloadcms",
     "cms",
     "template",
     "law-firm",
+    "lawyer",
+    "legal",
     "nextjs",
-    "react"
+    "react",
+    "shadcn-ui",
+    "tailwindcss",
+    "typescript",
+    "cli",
+    "scaffold",
+    "generator"
   ],
-  "author": "",
+  "author": "Lotus015",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Lotus015/payload-templates.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Lotus015/payload-templates/issues"
+  },
+  "homepage": "https://github.com/Lotus015/payload-templates#readme",
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "files": [
+    "bin/",
+    "lib/",
+    "README.md"
+  ],
   "dependencies": {
     "degit": "^2.8.4",
     "kleur": "^4.1.5",

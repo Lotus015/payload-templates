@@ -329,3 +329,18 @@ Learnings:
 - CLI has 27 tests (templates + validation)
 - Each template has 6 Button component tests
 - Test passed: cd templates/premium && pnpm lint && pnpm typecheck && pnpm build && cd ../traditional && pnpm lint && pnpm typecheck && pnpm build && cd ../modern && pnpm lint && pnpm typecheck && pnpm build && cd ../boutique && pnpm lint && pnpm typecheck && pnpm build
+
+=== Iteration 24 - S24 - 2026-01-19 19:05:00 UTC ===
+Status: COMPLETE
+Learnings:
+- npm pack --dry-run validates package.json metadata and shows exactly what will be published
+- package.json "files" array specifies which files to include (alternative to .npmignore for inclusions)
+- Using both "files" and .npmignore together: "files" whitelists, .npmignore excludes from whitelist
+- "engines" field in package.json helps npm warn users about incompatible Node.js versions
+- Repository object format: { "type": "git", "url": "git+https://..." } is the npm standard
+- "bugs" and "homepage" fields improve the npm package page UX
+- Keywords should include variations: "payload", "payloadcms", plus related terms for discoverability
+- PUBLISHING.md covers: npm login, publish, scoped packages, versioning, and troubleshooting
+- npm pack output shows tarball contents: 5 files totaling 17.9 kB unpacked
+- Did NOT run npm publish per acceptance criteria - left for user to do manually
+- Test passed: cd cli && npm pack --dry-run && test -f PUBLISHING.md
