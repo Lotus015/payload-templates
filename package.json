@@ -1,0 +1,26 @@
+{
+  "name": "payload-templates-monorepo",
+  "version": "1.0.0",
+  "private": true,
+  "description": "CLI tool and law firm website templates using Next.js 16 + React 19 + Payload CMS 3.x + shadcn/ui",
+  "packageManager": "pnpm@9.15.0",
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "scripts": {
+    "dev": "pnpm --filter=* run dev",
+    "build": "pnpm --filter=* run build",
+    "lint": "pnpm --filter=* run lint",
+    "test": "pnpm --filter=* run test",
+    "typecheck": "pnpm --filter=* run typecheck"
+  },
+  "keywords": [
+    "payload-cms",
+    "next.js",
+    "law-firm",
+    "templates",
+    "cli"
+  ],
+  "author": "",
+  "license": "MIT"
+}

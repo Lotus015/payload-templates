@@ -1,0 +1,8 @@
+=== Iteration 1 - S1 - 2026-01-19 ===
+Status: COMPLETE
+Learnings:
+- pnpm workspaces work with empty directories (only .gitkeep files)
+- pnpm install succeeds even without any packages in workspaces
+- Root package.json needs "private": true for monorepo setup
+- Used .gitkeep files to preserve empty directories in git
+- Test passed: pnpm install completed successfully
