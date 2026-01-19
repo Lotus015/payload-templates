@@ -137,3 +137,34 @@ Learnings:
 - Premium theme colors (navy, gold, cream) used consistently across all sections via Tailwind classes
 - Barrel export (index.ts) alphabetically ordered for consistency with S10 pattern
 - Test passed: cd templates/premium && pnpm build
+
+=== Iteration 12 - S12 - 2026-01-19 ===
+Status: COMPLETE
+Learnings:
+- Homepage app/page.tsx composes all sections from features/home/components/ with data fetching
+- Dynamic routes in Next.js 16 use `params: Promise<{ slug: string }>` pattern (must await params)
+- Service detail pages at app/services/[slug]/page.tsx with sidebar showing other services
+- Blog listing at app/blog/page.tsx and detail at app/blog/[slug]/page.tsx with related posts
+- Contact page at app/contact/page.tsx reuses ContactSection component with custom props
+- generateMetadata async function works with awaited params for dynamic SEO metadata
+- JSX.IntrinsicElements namespace not available in modern TypeScript - use explicit conditional rendering instead
+- Payload Lexical rich text content has root.children array with type and children properties
+- Breadcrumb navigation pattern with ChevronRight icon between links for consistent UX
+- notFound() from next/navigation handles 404 cases gracefully
+- Promise.all for parallel data fetching (main content + related content) improves performance
+- Pattern: try/catch with fallback returns for all Payload queries ensures build without DB works
+- Test passed: cd templates/premium && pnpm build
+
+=== Iteration 13 - S13 - 2026-01-19 ===
+Status: COMPLETE
+Learnings:
+- Next.js API routes with Payload Local API use getPayload({ config }) same as Server Components
+- API route at app/api/contact/route.ts handles POST requests outside Payload's own API routes
+- Zod validation in API route validates: name (2-100 chars), email (valid format), phone (optional), message (10-5000 chars), theme (optional)
+- Basic in-memory rate limiting implemented: Map-based tracking with 5 requests per minute per IP
+- Rate limiting uses x-forwarded-for or x-real-ip headers for client IP detection
+- setInterval cleanup for rate limit map entries older than 2x window prevents memory leaks
+- Payload create() method for contact-submissions collection with createdAt timestamp and read: false
+- ContactSection form from S11 already submits to /api/contact endpoint - no frontend changes needed
+- Pattern: API routes separate from Payload's (payload) route group for custom business logic
+- Test passed: cd templates/premium && pnpm build
