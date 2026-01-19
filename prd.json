@@ -377,8 +377,9 @@
       "tests": [
         "node cli/bin/index.js --help"
       ],
-      "passes": false,
-      "completedAt": null
+      "passes": true,
+      "completedAt": "2026-01-19T17:28:57Z",
+      "durationSecs": 121
     },
     {
       "id": "S20",
