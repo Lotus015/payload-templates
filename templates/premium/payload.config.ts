@@ -5,6 +5,7 @@ import path from 'path'
 import { fileURLToPath } from 'url'
 
 import { BlogPosts, ContactSubmissions, Media, Pages, Services, Team, Testimonials } from './collections'
+import { SiteSettings, ThemeSettings } from './globals'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -38,6 +39,7 @@ export default buildConfig({
     Team,
     Testimonials,
   ],
+  globals: [SiteSettings, ThemeSettings],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',
   typescript: {
