@@ -200,3 +200,22 @@ Learnings:
 - CLAUDE.md operating contract updated with Traditional theme specifics
 - Peer dependency warning for Next.js 16 with Payload 3.x continues but doesn't affect build
 - Test passed: cd templates/traditional && pnpm install && pnpm build
+
+=== Iteration 16 - S16 - 2026-01-19 ===
+Status: COMPLETE
+Learnings:
+- Template duplication process consistent with S15: copy premium folder, exclude node_modules/.next
+- Hex to HSL conversion for Modern theme: Light Blue #4a90e2 → HSL 212 72% 59%
+- Montserrat and Open Sans fonts work with default subsets configuration
+- Modern theme design emphasizes: clean lines, whitespace, lighter visual weight
+- CSS variables renamed from --premium-* to --modern-* with blue/slate/white/gray naming
+- For Modern theme, accent colors use white on blue backgrounds (contrast with Premium/Traditional gold)
+- Tailwind color utility classes renamed: navy→blue, navy-light→blue-light, navy-dark→blue-dark, gold→blue (for accents), cream→white/gray
+- All component files systematically updated: HeroSection, ServicesSection, AboutSection, TestimonialsSection, BlogSection, ContactSection
+- Page files updated: page.tsx, services/[slug], blog/page, blog/[slug], contact
+- ThemeSettings global default values updated for Modern theme fonts and colors
+- ContactSection theme value updated from 'premium' to 'modern' in form submission
+- Metadata references updated from "Premium" to "Modern" throughout
+- CLAUDE.md operating contract updated with Modern theme specifics
+- Font variables renamed: --font-playfair→--font-montserrat, --font-inter→--font-opensans
+- Test passed: cd templates/modern && pnpm install && pnpm build

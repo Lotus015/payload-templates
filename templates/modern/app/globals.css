@@ -1,0 +1,163 @@
+@import "tailwindcss";
+
+/*
+ * Modern Theme Colors
+ * Blue: #4a90e2 → HSL 212 72% 59%
+ * White space emphasis with light, clean aesthetic
+ */
+
+@layer base {
+  :root {
+    /* Modern Theme - Light Mode */
+    --background: 0 0% 100%;
+    --foreground: 212 30% 20%;
+    --card: 0 0% 100%;
+    --card-foreground: 212 30% 20%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 212 30% 20%;
+    --primary: 212 72% 59%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 212 20% 95%;
+    --secondary-foreground: 212 30% 20%;
+    --muted: 210 20% 98%;
+    --muted-foreground: 212 15% 45%;
+    --accent: 212 72% 59%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 210 20% 92%;
+    --input: 210 20% 92%;
+    --ring: 212 72% 59%;
+    --chart-1: 212 72% 59%;
+    --chart-2: 212 50% 75%;
+    --chart-3: 212 72% 45%;
+    --chart-4: 212 40% 85%;
+    --chart-5: 212 30% 65%;
+    --radius: 0.5rem;
+
+    /* Modern Theme Extended Colors */
+    --modern-blue: 212 72% 59%;
+    --modern-blue-light: 212 80% 72%;
+    --modern-blue-dark: 212 72% 45%;
+    --modern-slate: 212 30% 20%;
+    --modern-slate-light: 212 20% 40%;
+    --modern-white: 0 0% 100%;
+    --modern-gray: 210 20% 98%;
+  }
+  .dark {
+    /* Modern Theme - Dark Mode */
+    --background: 212 30% 12%;
+    --foreground: 210 20% 98%;
+    --card: 212 30% 15%;
+    --card-foreground: 210 20% 98%;
+    --popover: 212 30% 15%;
+    --popover-foreground: 210 20% 98%;
+    --primary: 212 72% 59%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 212 25% 25%;
+    --secondary-foreground: 210 20% 98%;
+    --muted: 212 25% 20%;
+    --muted-foreground: 210 15% 65%;
+    --accent: 212 72% 59%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 62.8% 50%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 212 25% 25%;
+    --input: 212 25% 25%;
+    --ring: 212 72% 59%;
+    --chart-1: 212 72% 59%;
+    --chart-2: 212 50% 45%;
+    --chart-3: 212 80% 72%;
+    --chart-4: 212 40% 55%;
+    --chart-5: 212 60% 50%;
+
+    /* Modern Theme Extended Colors - Dark Mode */
+    --modern-blue: 212 72% 59%;
+    --modern-blue-light: 212 80% 72%;
+    --modern-blue-dark: 212 72% 45%;
+    --modern-slate: 212 30% 20%;
+    --modern-slate-light: 212 20% 40%;
+    --modern-white: 0 0% 100%;
+    --modern-gray: 210 20% 98%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@theme inline {
+  /* Font family definitions */
+  --font-sans: var(--font-opensans), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-montserrat), ui-sans-serif, system-ui, sans-serif;
+  --font-heading: var(--font-montserrat), ui-sans-serif, system-ui, sans-serif;
+  --font-body: var(--font-opensans), ui-sans-serif, system-ui, sans-serif;
+
+  /* shadcn/ui base color mappings */
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+  --color-chart-1: hsl(var(--chart-1));
+  --color-chart-2: hsl(var(--chart-2));
+  --color-chart-3: hsl(var(--chart-3));
+  --color-chart-4: hsl(var(--chart-4));
+  --color-chart-5: hsl(var(--chart-5));
+
+  /* Modern Theme Color Palette for Tailwind */
+  --color-blue: hsl(var(--modern-blue));
+  --color-blue-light: hsl(var(--modern-blue-light));
+  --color-blue-dark: hsl(var(--modern-blue-dark));
+  --color-slate: hsl(var(--modern-slate));
+  --color-slate-light: hsl(var(--modern-slate-light));
+  --color-white: hsl(var(--modern-white));
+  --color-gray: hsl(var(--modern-gray));
+
+  /* Radius values */
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+
+  /* Accordion animations */
+  --animate-accordion-down: accordion-down 0.2s ease-out;
+  --animate-accordion-up: accordion-up 0.2s ease-out;
+
+  @keyframes accordion-down {
+    from {
+      height: 0;
+    }
+    to {
+      height: var(--radix-accordion-content-height);
+    }
+  }
+
+  @keyframes accordion-up {
+    from {
+      height: var(--radix-accordion-content-height);
+    }
+    to {
+      height: 0;
+    }
+  }
+}
