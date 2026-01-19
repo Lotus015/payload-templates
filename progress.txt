@@ -310,3 +310,22 @@ Learnings:
 - CLAUDE.md serves as AI assistant operating contract with theme-specific color variables and HSL values
 - Acceptance criteria included template README check but existing README was already comprehensive
 - Test passed: test -f templates/premium/README.md && test -f cli/README.md && test -f README.md
+
+=== Iteration 23 - S23 - 2026-01-19 18:49:30 UTC ===
+Status: COMPLETE
+Learnings:
+- ESLint 9 requires flat config (eslint.config.mjs) - legacy .eslintrc format deprecated
+- ESLint FlatCompat from @eslint/eslintrc has compatibility issues with ESLint 9 and Next.js configs
+- Better to use typescript-eslint native flat config instead of FlatCompat
+- react-hooks/static-components rule causes false positives with Next.js Server Components
+- Extracted CLI logic into lib/templates.js and lib/validation.js for testability
+- Vitest works well for both CLI (JS) and React component testing (TSX)
+- @testing-library/react v16 compatible with React 19
+- jsdom environment required for React component testing in Vitest
+- vitest.setup.ts imports @testing-library/jest-dom for custom matchers
+- Path aliases (@/) need explicit configuration in vitest.config.ts resolve.alias
+- Script files (seed.ts) should be excluded from ESLint to avoid no-console warnings
+- All 4 templates pass: pnpm lint, pnpm typecheck, pnpm build
+- CLI has 27 tests (templates + validation)
+- Each template has 6 Button component tests
+- Test passed: cd templates/premium && pnpm lint && pnpm typecheck && pnpm build && cd ../traditional && pnpm lint && pnpm typecheck && pnpm build && cd ../modern && pnpm lint && pnpm typecheck && pnpm build && cd ../boutique && pnpm lint && pnpm typecheck && pnpm build

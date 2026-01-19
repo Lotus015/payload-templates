@@ -457,8 +457,9 @@
       "tests": [
         "cd templates/premium && pnpm lint && pnpm typecheck && pnpm build && cd ../traditional && pnpm lint && pnpm typecheck && pnpm build && cd ../modern && pnpm lint && pnpm typecheck && pnpm build && cd ../boutique && pnpm lint && pnpm typecheck && pnpm build"
       ],
-      "passes": false,
-      "completedAt": null
+      "passes": true,
+      "completedAt": "2026-01-19T18:49:30Z",
+      "durationSecs": 360
     },
     {
       "id": "S24",
