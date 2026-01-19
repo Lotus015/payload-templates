@@ -122,3 +122,18 @@ Learnings:
 - Type assertions needed when extracting Payload data (e.g., service.title as string)
 - Barrel export (layout/index.ts) maintains clean import pattern from previous stories
 - Test passed: cd templates/premium && pnpm build
+
+=== Iteration 11 - S11 - 2026-01-19 ===
+Status: COMPLETE
+Learnings:
+- Homepage sections organized in features/home/components/ directory for feature-based structure
+- HeroSection: Uses optional background image with gradient fallback, responsive with min-h-[600px] lg:min-h-[700px]
+- ServicesSection: Icon mapping (lucide-react) from string names to components, grid layout with Card components
+- AboutSection: Two-column layout with decorative elements, CheckCircle list for features
+- TestimonialsSection: Client component ('use client') for carousel state, shows grid for ≤3 items, carousel for >3
+- BlogSection: Featured image handling with fallback placeholder, date formatting with toLocaleDateString
+- ContactSection: Full form with react-hook-form + zod validation, submits to /api/contact endpoint
+- Pattern: All sections accept props with sensible defaults for standalone use or CMS integration
+- Premium theme colors (navy, gold, cream) used consistently across all sections via Tailwind classes
+- Barrel export (index.ts) alphabetically ordered for consistency with S10 pattern
+- Test passed: cd templates/premium && pnpm build
