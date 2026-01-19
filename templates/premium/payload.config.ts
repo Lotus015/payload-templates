@@ -4,6 +4,8 @@ import { lexicalEditor } from '@payloadcms/richtext-lexical'
 import path from 'path'
 import { fileURLToPath } from 'url'
 
+import { Media, Pages, Services } from './collections'
+
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
 
@@ -28,17 +30,9 @@ export default buildConfig({
         },
       ],
     },
-    {
-      slug: 'media',
-      upload: true,
-      fields: [
-        {
-          name: 'alt',
-          type: 'text',
-          required: true,
-        },
-      ],
-    },
+    Media,
+    Pages,
+    Services,
   ],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',

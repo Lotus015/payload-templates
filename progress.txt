@@ -26,3 +26,28 @@ Learnings:
 - Next.js 16 with Turbopack shows workspace root warning when multiple lockfiles detected
 - pnpm workspaces automatically install dependencies from sub-packages
 - Test passed: cd templates/premium && pnpm install && pnpm build
+
+=== Iteration 4 - S4 - 2026-01-19 ===
+Status: COMPLETE
+Learnings:
+- Payload CMS 3.x has peer dependency warning with Next.js 16 (expects Next.js 15.x) but builds successfully
+- Payload 3.x uses handleServerFunctions from @payloadcms/next/layouts instead of payload.serverFunction()
+- Admin routes require (payload) route group with [[...segments]] dynamic catch-all
+- API routes need separate handlers for REST (/api/[[...slug]]) and GraphQL (/api/graphql)
+- @payload-config TypeScript path alias required in tsconfig.json
+- sass package required for Payload admin SCSS styles
+- importMap.js exports an empty object by default, populated when custom components are added
+- graphql package is a required dependency for Payload 3.x
+- Test passed: cd templates/premium && pnpm build
+
+=== Iteration 5 - S5 - 2026-01-19 ===
+Status: COMPLETE
+Learnings:
+- Payload CMS 3.x collections can be defined as separate files with CollectionConfig type
+- Collections use export barrel (index.ts) for clean imports in payload.config.ts
+- Group field type allows nested field structures (used for hero section in Pages)
+- Upload collection with mimeTypes filter restricts allowed file types
+- Relationship to media collection uses `type: 'upload'` with `relationTo: 'media'`
+- TypeScript types (payload-types.ts) are generated when Payload runs with DB connection, not at build time
+- Build compilation validates collection schemas without requiring DB connection
+- Test passed: cd templates/premium && pnpm build
