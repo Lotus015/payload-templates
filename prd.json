@@ -419,8 +419,9 @@
       "tests": [
         "test -f docs/lightsail-deployment.md"
       ],
-      "passes": false,
-      "completedAt": null
+      "passes": true,
+      "completedAt": "2026-01-19T17:34:40Z",
+      "durationSecs": 154
     },
     {
       "id": "S22",
@@ -474,6 +475,26 @@
       ],
       "tests": [
         "cd cli && npm pack --dry-run && test -f PUBLISHING.md"
+      ],
+      "passes": false,
+      "completedAt": null
+    },
+    {
+      "id": "S25",
+      "priority": 25,
+      "title": "Create Testing Guide for User",
+      "description": "Create a comprehensive TESTING.md guide in the root directory that explains how the user can manually test everything end-to-end.",
+      "acceptance": [
+        "TESTING.md created in root directory with step-by-step testing instructions",
+        "Instructions for setting up a local PostgreSQL database for testing",
+        "Instructions for testing each template: how to run dev server, access admin panel, test seed script",
+        "Instructions for testing the CLI locally before publishing (using 'node cli/bin/index.js')",
+        "Instructions for testing after npm publish (using 'npx payload-templates')",
+        "Checklist of things to verify: all 4 templates build, seed works, admin panel loads, frontend renders",
+        "Troubleshooting section for common issues (database connection, missing env vars, etc.)"
+      ],
+      "tests": [
+        "test -f TESTING.md"
       ],
       "passes": false,
       "completedAt": null
