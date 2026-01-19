@@ -51,3 +51,28 @@ Learnings:
 - TypeScript types (payload-types.ts) are generated when Payload runs with DB connection, not at build time
 - Build compilation validates collection schemas without requiring DB connection
 - Test passed: cd templates/premium && pnpm build
+
+=== Iteration 6 - S6 - 2026-01-19 ===
+Status: COMPLETE
+Learnings:
+- Payload 3.x number fields support min/max validation for range constraints (used for rating 1-5)
+- Email field type provides built-in email validation
+- Checkbox field type with defaultValue: false for boolean flags (read status)
+- Date field supports pickerAppearance: 'dayOnly' or 'dayAndTime' for different use cases
+- Collections with relationships to Media use `type: 'upload'` with `relationTo: 'media'`
+- Pattern from S5 continued: alphabetical ordering in barrel exports and config imports keeps code organized
+- Build validates all collection schemas without requiring database connection
+- Test passed: cd templates/premium && pnpm build
+
+=== Iteration 7 - S7 - 2026-01-19 ===
+Status: COMPLETE
+Learnings:
+- Payload 3.x globals use GlobalConfig type (different from CollectionConfig)
+- Globals are registered via `globals: [...]` array in buildConfig (not within collections)
+- Global slugs use kebab-case by convention (e.g., 'site-settings', 'theme-settings')
+- Globals support same field types as collections including arrays, uploads, selects
+- Default values work well for required fields in globals (ensures valid initial state)
+- Array field type perfect for repeatable structures like socialLinks
+- Select field type with options array provides dropdown UI in admin
+- Pattern continued: barrel export (globals/index.ts) keeps imports clean
+- Test passed: cd templates/premium && pnpm build
