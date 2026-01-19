@@ -254,8 +254,9 @@
       "tests": [
         "cd templates/premium && pnpm build"
       ],
-      "passes": false,
-      "completedAt": null
+      "passes": true,
+      "completedAt": "2026-01-19T17:01:33Z",
+      "durationSecs": 126
     },
     {
       "id": "S14",
