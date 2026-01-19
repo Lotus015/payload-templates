@@ -219,3 +219,21 @@ Learnings:
 - CLAUDE.md operating contract updated with Modern theme specifics
 - Font variables renamed: --font-playfair→--font-montserrat, --font-inter→--font-opensans
 - Test passed: cd templates/modern && pnpm install && pnpm build
+
+=== Iteration 17 - S17 - 2026-01-19 ===
+Status: COMPLETE
+Learnings:
+- Template duplication process consistent with S15/S16: copy premium folder, exclude node_modules/.next
+- Hex to HSL conversion for Boutique theme: Deep Green #2c5f2d → HSL 122 37% 27%, Beige #e8dcc4 → HSL 40 45% 84%
+- Cormorant and Raleway fonts work with default subsets configuration
+- Boutique theme design emphasizes: elegant, specialized aesthetic with natural tones
+- CSS variables renamed from --premium-* to --boutique-* with green/beige/cream naming
+- Tailwind color utility classes renamed: navy→green, navy-light→green-light, navy-dark→green-dark, gold→beige (for accents)
+- All component files systematically updated: HeroSection, ServicesSection, AboutSection, TestimonialsSection, BlogSection, ContactSection
+- Page files updated: services/[slug], blog/page, blog/[slug], contact (metadata + color references)
+- ThemeSettings global default values updated for Boutique theme fonts and colors
+- ContactSection theme value updated from 'premium' to 'boutique' in form submission
+- Metadata references updated from "Premium" to "Boutique" throughout
+- CLAUDE.md operating contract updated with Boutique theme specifics
+- Font variables renamed: --font-playfair→--font-cormorant, --font-inter→--font-raleway
+- Test passed: cd templates/boutique && pnpm install && pnpm build
