@@ -6,3 +6,23 @@ Learnings:
 - Root package.json needs "private": true for monorepo setup
 - Used .gitkeep files to preserve empty directories in git
 - Test passed: pnpm install completed successfully
+
+=== Iteration 2 - S2 - 2026-01-19 ===
+Status: COMPLETE
+Learnings:
+- ES modules require "type": "module" in package.json
+- kleur works well for simple colorized CLI output
+- Shebang (#!/usr/bin/env node) required for CLI bin executables
+- pnpm automatically picks up new workspace packages on install
+- Removed .gitkeep after adding real files to cli/ directory
+- Test passed: node cli/bin/index.js displays welcome message
+
+=== Iteration 3 - S3 - 2026-01-19 ===
+Status: COMPLETE
+Learnings:
+- Tailwind CSS v4 requires @tailwindcss/postcss package (not tailwindcss directly as PostCSS plugin)
+- Tailwind CSS v4 uses CSS-based config with @import "tailwindcss" instead of tailwind.config.js
+- Next.js 16 automatically modifies tsconfig.json (jsx changed to react-jsx, include updated)
+- Next.js 16 with Turbopack shows workspace root warning when multiple lockfiles detected
+- pnpm workspaces automatically install dependencies from sub-packages
+- Test passed: cd templates/premium && pnpm install && pnpm build
