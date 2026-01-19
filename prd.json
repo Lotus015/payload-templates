@@ -478,8 +478,9 @@
       "tests": [
         "cd cli && npm pack --dry-run && test -f PUBLISHING.md"
       ],
-      "passes": false,
-      "completedAt": null
+      "passes": true,
+      "completedAt": "2026-01-19T17:52:25Z",
+      "durationSecs": 127
     },
     {
       "id": "S25",
