@@ -268,3 +268,17 @@ Learnings:
 - Next steps numbered list with database configuration example improves developer experience
 - Troubleshooting tips in error messages help users self-diagnose issues
 - Test passed: node cli/bin/index.js --help
+
+=== Iteration 20 - S20 - 2026-01-19 ===
+Status: COMPLETE
+Learnings:
+- vercel.json uses $schema for validation: https://openapi.vercel.sh/vercel.json
+- vercel.json supports buildCommand, installCommand, framework, regions, and env properties
+- Vercel environment variables referenced with @ prefix (e.g., @payload-secret) for secrets
+- Connection pooling parameter `pgbouncer=true` essential for Vercel Postgres serverless compatibility
+- sslmode=require needed for secure PostgreSQL connections on Vercel
+- README includes comprehensive Vercel deployment section with environment variables table
+- Recommended database providers for Vercel: Vercel Postgres, Neon, Supabase (all support connection pooling)
+- Modern template was missing .env.example - fixed during this story
+- Each template README customized with theme-specific CSS variable names
+- Test passed: cat templates/premium/vercel.json
