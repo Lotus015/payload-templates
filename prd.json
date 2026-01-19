@@ -16,9 +16,12 @@
         "Root README.md with project overview",
         "Empty directories: cli/, templates/premium/, templates/traditional/, templates/modern/, templates/boutique/"
       ],
-      "tests": ["pnpm install"],
-      "passes": false,
-      "completedAt": null
+      "tests": [
+        "pnpm install"
+      ],
+      "passes": true,
+      "completedAt": "2026-01-19T16:22:32Z",
+      "durationSecs": 125
     },
     {
       "id": "S2",
@@ -32,7 +35,9 @@
         "Basic welcome message displays when running the CLI",
         "package.json includes type: module"
       ],
-      "tests": ["node cli/bin/index.js"],
+      "tests": [
+        "node cli/bin/index.js"
+      ],
       "passes": false,
       "completedAt": null
     },
@@ -50,7 +55,9 @@
         ".env.example with required environment variables",
         "CLAUDE.md operating contract"
       ],
-      "tests": ["cd templates/premium && pnpm install && pnpm build"],
+      "tests": [
+        "cd templates/premium && pnpm install && pnpm build"
+      ],
       "passes": false,
       "completedAt": null
     },
@@ -67,7 +74,9 @@
         "Support for both Vercel (connection pooling) and direct PostgreSQL connections",
         "Environment variables documented in .env.example"
       ],
-      "tests": ["cd templates/premium && pnpm build"],
+      "tests": [
+        "cd templates/premium && pnpm build"
+      ],
       "passes": false,
       "completedAt": null
     },
@@ -83,7 +92,9 @@
         "Collections registered in payload.config.ts",
         "TypeScript types generated for all collections"
       ],
-      "tests": ["cd templates/premium && pnpm build"],
+      "tests": [
+        "cd templates/premium && pnpm build"
+      ],
       "passes": false,
       "completedAt": null
     },
@@ -99,7 +110,9 @@
         "collections/ContactSubmissions.ts with fields: name, email, phone, message, theme, createdAt, read (boolean)",
         "All collections registered in payload.config.ts"
       ],
-      "tests": ["cd templates/premium && pnpm build"],
+      "tests": [
+        "cd templates/premium && pnpm build"
+      ],
       "passes": false,
       "completedAt": null
     },
@@ -114,7 +127,9 @@
         "Globals registered in payload.config.ts",
         "Default values provided for required fields"
       ],
-      "tests": ["cd templates/premium && pnpm build"],
+      "tests": [
+        "cd templates/premium && pnpm build"
+      ],
       "passes": false,
       "completedAt": null
     },
@@ -130,7 +145,9 @@
         "Tailwind configured for shadcn/ui (CSS variables mode)",
         "lib/utils.ts with cn() helper function"
       ],
-      "tests": ["cd templates/premium && pnpm build"],
+      "tests": [
+        "cd templates/premium && pnpm build"
+      ],
       "passes": false,
       "completedAt": null
     },
@@ -146,7 +163,9 @@
         "Dark/light mode support using CSS variables",
         "Premium theme applied to all shadcn components"
       ],
-      "tests": ["cd templates/premium && pnpm build"],
+      "tests": [
+        "cd templates/premium && pnpm build"
+      ],
       "passes": false,
       "completedAt": null
     },
@@ -162,7 +181,9 @@
         "Navigation items fetched from Payload (Services collection for menu)",
         "Mobile-responsive design using Tailwind breakpoints"
       ],
-      "tests": ["cd templates/premium && pnpm build"],
+      "tests": [
+        "cd templates/premium && pnpm build"
+      ],
       "passes": false,
       "completedAt": null
     },
@@ -180,7 +201,9 @@
         "features/home/components/ContactSection.tsx - Contact form + info",
         "All sections fetch data from Payload collections"
       ],
-      "tests": ["cd templates/premium && pnpm build"],
+      "tests": [
+        "cd templates/premium && pnpm build"
+      ],
       "passes": false,
       "completedAt": null
     },
@@ -198,7 +221,9 @@
         "Server Components for data fetching, Client Components where needed",
         "SEO metadata on all pages (title, description, og:image)"
       ],
-      "tests": ["cd templates/premium && pnpm build"],
+      "tests": [
+        "cd templates/premium && pnpm build"
+      ],
       "passes": false,
       "completedAt": null
     },
@@ -215,7 +240,9 @@
         "Rate limiting consideration (basic)",
         "ContactSection form submits to this endpoint"
       ],
-      "tests": ["cd templates/premium && pnpm build"],
+      "tests": [
+        "cd templates/premium && pnpm build"
+      ],
       "passes": false,
       "completedAt": null
     },
@@ -235,7 +262,9 @@
         "Script runnable via pnpm seed",
         "Idempotent (can run multiple times safely)"
       ],
-      "tests": ["cd templates/premium && pnpm build"],
+      "tests": [
+        "cd templates/premium && pnpm build"
+      ],
       "passes": false,
       "completedAt": null
     },
@@ -252,7 +281,9 @@
         "All components render correctly with new theme",
         "Demo content seed uses same data structure"
       ],
-      "tests": ["cd templates/traditional && pnpm install && pnpm build"],
+      "tests": [
+        "cd templates/traditional && pnpm install && pnpm build"
+      ],
       "passes": false,
       "completedAt": null
     },
@@ -269,7 +300,9 @@
         "More whitespace and lighter visual weight",
         "All components render correctly with new theme"
       ],
-      "tests": ["cd templates/modern && pnpm install && pnpm build"],
+      "tests": [
+        "cd templates/modern && pnpm install && pnpm build"
+      ],
       "passes": false,
       "completedAt": null
     },
@@ -286,7 +319,9 @@
         "Elegant, specialized aesthetic",
         "All components render correctly with new theme"
       ],
-      "tests": ["cd templates/boutique && pnpm install && pnpm build"],
+      "tests": [
+        "cd templates/boutique && pnpm install && pnpm build"
+      ],
       "passes": false,
       "completedAt": null
     },
@@ -303,7 +338,9 @@
         "Uses degit to clone selected template from Lotus015/payload-templates/templates/{name}",
         "Progress indicators during cloning"
       ],
-      "tests": ["node cli/bin/index.js --help"],
+      "tests": [
+        "node cli/bin/index.js --help"
+      ],
       "passes": false,
       "completedAt": null
     },
@@ -320,7 +357,9 @@
         "Next steps include: cd into project, set up DATABASE_URL, run pnpm seed, run pnpm dev",
         "Handles errors gracefully with helpful messages"
       ],
-      "tests": ["node cli/bin/index.js --help"],
+      "tests": [
+        "node cli/bin/index.js --help"
+      ],
       "passes": false,
       "completedAt": null
     },
@@ -337,7 +376,9 @@
         "PAYLOAD_SECRET environment variable required",
         "README section on Vercel deployment"
       ],
-      "tests": ["cat templates/premium/vercel.json"],
+      "tests": [
+        "cat templates/premium/vercel.json"
+      ],
       "passes": false,
       "completedAt": null
     },
@@ -356,7 +397,9 @@
         "Environment variables configuration",
         "Database backup recommendations"
       ],
-      "tests": ["test -f docs/lightsail-deployment.md"],
+      "tests": [
+        "test -f docs/lightsail-deployment.md"
+      ],
       "passes": false,
       "completedAt": null
     },
@@ -372,7 +415,9 @@
         "CLAUDE.md in each template with operating contract",
         "All documentation in English"
       ],
-      "tests": ["test -f templates/premium/README.md && test -f cli/README.md && test -f README.md"],
+      "tests": [
+        "test -f templates/premium/README.md && test -f cli/README.md && test -f README.md"
+      ],
       "passes": false,
       "completedAt": null
     },
@@ -389,7 +434,9 @@
         "TypeScript strict mode with no errors",
         "At least one test file per template testing a component"
       ],
-      "tests": ["cd templates/premium && pnpm lint && pnpm typecheck"],
+      "tests": [
+        "cd templates/premium && pnpm lint && pnpm typecheck"
+      ],
       "passes": false,
       "completedAt": null
     },
@@ -406,7 +453,9 @@
         "Package can be built with npm pack",
         "npx payload-templates displays welcome message"
       ],
-      "tests": ["cd cli && npm pack --dry-run"],
+      "tests": [
+        "cd cli && npm pack --dry-run"
+      ],
       "passes": false,
       "completedAt": null
     }
