@@ -357,8 +357,9 @@
       "tests": [
         "node cli/bin/index.js --help"
       ],
-      "passes": false,
-      "completedAt": null
+      "passes": true,
+      "completedAt": "2026-01-19T17:26:53Z",
+      "durationSecs": 105
     },
     {
       "id": "S19",
@@ -459,18 +460,19 @@
     {
       "id": "S24",
       "priority": 24,
-      "title": "Publish CLI to npm",
-      "description": "Prepare and publish the CLI package to npm as payload-templates.",
+      "title": "Prepare CLI for npm Publishing",
+      "description": "Prepare the CLI package for npm publishing. Do NOT actually publish - just ensure everything is ready for the user to publish manually with 'npm publish'.",
       "acceptance": [
         "cli/package.json has correct metadata (name, version, description, keywords, repository, author, license)",
         "Version set to 1.0.0",
-        "README included in package",
-        ".npmignore excludes unnecessary files",
-        "Package can be built with npm pack",
-        "npx payload-templates displays welcome message"
+        "README.md included in cli/ directory with usage instructions",
+        ".npmignore excludes unnecessary files (node_modules, .env, etc.)",
+        "Package can be packed successfully with npm pack --dry-run",
+        "Add PUBLISHING.md in cli/ with instructions for the user on how to: npm login, npm publish, and test with npx",
+        "DO NOT run npm publish - leave that for the user to do manually"
       ],
       "tests": [
-        "cd cli && npm pack --dry-run"
+        "cd cli && npm pack --dry-run && test -f PUBLISHING.md"
       ],
       "passes": false,
       "completedAt": null
