@@ -297,8 +297,9 @@
       "tests": [
         "cd templates/traditional && pnpm install && pnpm build"
       ],
-      "passes": false,
-      "completedAt": null
+      "passes": true,
+      "completedAt": "2026-01-19T17:10:28Z",
+      "durationSecs": 326
     },
     {
       "id": "S16",
