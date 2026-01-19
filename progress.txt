@@ -237,3 +237,34 @@ Learnings:
 - CLAUDE.md operating contract updated with Boutique theme specifics
 - Font variables renamed: --font-playfair→--font-cormorant, --font-inter→--font-raleway
 - Test passed: cd templates/boutique && pnpm install && pnpm build
+
+=== Iteration 18 - S18 - 2026-01-19 ===
+Status: COMPLETE
+Learnings:
+- prompts library provides interactive terminal prompts with select and text types
+- prompts onCancel callback handles Ctrl+C gracefully for clean exit
+- degit clones GitHub repos without git history, perfect for templates
+- degit emitter supports 'info' event for progress/warning notifications
+- kleur provides colorized terminal output (bold, blue, gray, cyan, green, red, yellow)
+- Unicode box-drawing characters (╭╮│╰╯) create nice ASCII banners
+- Unicode symbols (◐ ✓ ✗) provide visual progress indicators
+- Project name validation: regex /^[a-zA-Z0-9_-]+$/ for valid characters, fs.existsSync for directory check
+- Template selection shows title with hex colors in gray for visual reference
+- --help flag handled with process.argv.slice(2).includes('--help')
+- degit repo path format: Lotus015/payload-templates/templates/{name} for monorepo subdirectory
+- Test passed: node cli/bin/index.js --help
+
+=== Iteration 19 - S19 - 2026-01-19 ===
+Status: COMPLETE
+Learnings:
+- child_process.spawn with stdio: 'inherit' passes output directly to parent process terminal
+- spawn shell option needed on Windows: shell: process.platform === 'win32'
+- Promise wrapper around spawn enables async/await usage for shell commands
+- updatePackageJson reads, modifies, and writes JSON with JSON.parse/stringify
+- createEnvFile uses fs.copyFileSync for simple file copying from .env.example to .env
+- Graceful error handling: wrap each step in try/catch to show warnings but continue execution
+- pnpm install output shown directly to user via stdio: 'inherit' for transparency
+- Enhanced success message uses box-drawing characters for visual appeal
+- Next steps numbered list with database configuration example improves developer experience
+- Troubleshooting tips in error messages help users self-diagnose issues
+- Test passed: node cli/bin/index.js --help
