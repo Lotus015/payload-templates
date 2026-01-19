@@ -8,6 +8,9 @@ import { Card, CardContent, CardHeader } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Calendar, ChevronRight } from 'lucide-react'
 
+// Revalidate the page every 60 seconds (ISR caching)
+export const revalidate = 60
+
 export const metadata: Metadata = {
   title: 'Blog | Premium Law Firm',
   description:
@@ -120,60 +123,54 @@ export default async function BlogPage() {
           ) : (
             <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
               {posts.map((post) => (
-                <Card
-                  key={post.id}
-                  className="group overflow-hidden transition-all hover:shadow-lg"
-                >
-                  {/* Featured Image */}
-                  <div className="relative aspect-[16/10] overflow-hidden">
-                    {post.featuredImage?.url ? (
-                      <Image
-                        src={post.featuredImage.url}
-                        alt={post.featuredImage.alt || post.title}
-                        fill
-                        className="object-cover transition-transform group-hover:scale-105"
-                      />
-                    ) : (
-                      <div className="absolute inset-0 bg-gradient-to-br from-navy to-navy-light flex items-center justify-center">
-                        <span className="font-heading text-2xl font-bold text-gold/50">
-                          Blog
-                        </span>
-                      </div>
-                    )}
-                  </div>
+                <Link key={post.id} href={`/blog/${post.slug}`} className="block">
+                  <Card className="group overflow-hidden transition-all hover:shadow-lg h-full cursor-pointer">
+                    {/* Featured Image */}
+                    <div className="relative aspect-[16/10] overflow-hidden">
+                      {post.featuredImage?.url ? (
+                        <Image
+                          src={post.featuredImage.url}
+                          alt={post.featuredImage.alt || post.title}
+                          fill
+                          className="object-cover transition-transform group-hover:scale-105"
+                        />
+                      ) : (
+                        <div className="absolute inset-0 bg-gradient-to-br from-navy to-navy-light flex items-center justify-center">
+                          <span className="font-heading text-2xl font-bold text-gold/50">
+                            Blog
+                          </span>
+                        </div>
+                      )}
+                    </div>
 
-                  <CardHeader className="pb-2">
-                    {post.publishedDate && (
-                      <div className="flex items-center gap-2 text-muted-foreground text-sm">
-                        <Calendar className="h-4 w-4" />
-                        <time dateTime={post.publishedDate}>
-                          {formatDate(post.publishedDate)}
-                        </time>
-                      </div>
-                    )}
-                  </CardHeader>
+                    <CardHeader className="pb-2">
+                      {post.publishedDate && (
+                        <div className="flex items-center gap-2 text-muted-foreground text-sm">
+                          <Calendar className="h-4 w-4" />
+                          <time dateTime={post.publishedDate}>
+                            {formatDate(post.publishedDate)}
+                          </time>
+                        </div>
+                      )}
+                    </CardHeader>
 
-                  <CardContent>
-                    <h2 className="font-heading text-xl font-semibold mb-2 group-hover:text-gold transition-colors">
-                      <Link
-                        href={`/blog/${post.slug}`}
-                        className="hover:underline"
-                      >
+                    <CardContent>
+                      <h2 className="font-heading text-xl font-semibold mb-2 group-hover:text-gold transition-colors">
                         {post.title}
-                      </Link>
-                    </h2>
-                    {post.excerpt && (
-                      <p className="text-muted-foreground line-clamp-3 mb-4">
-                        {post.excerpt}
-                      </p>
-                    )}
-                    {post.author && (
-                      <Badge variant="secondary" className="text-xs">
-                        By {post.author}
-                      </Badge>
-                    )}
-                  </CardContent>
-                </Card>
+                      </h2>
+                      {post.excerpt && (
+                        <p className="text-muted-foreground line-clamp-3 mb-4">
+                          {post.excerpt}
+                        </p>
+                      )}
+                      {post.author && (
+                        <Badge variant="secondary" className="text-xs">
+                          By {post.author}
+                        </Badge>
+                      )}
+                    </CardContent>
+                  </Card>
+                </Link>
               ))}
             </div>
           )}

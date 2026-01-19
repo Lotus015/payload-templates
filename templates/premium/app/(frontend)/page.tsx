@@ -109,6 +109,9 @@ async function getHomePageData() {
   }
 }
 
+// Revalidate the page every 60 seconds (ISR caching)
+export const revalidate = 60
+
 export default async function HomePage() {
   const { services, testimonials, blogPosts, contactInfo } =
     await getHomePageData()

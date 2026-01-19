@@ -63,7 +63,7 @@ export function HeroSection({
               asChild
               variant="outline"
               size="lg"
-              className="border-cream/30 text-white hover:bg-white/10"
+              className="border-cream/30 bg-transparent text-white hover:bg-white/10"
             >
               <Link href={secondaryCtaLink}>{secondaryCtaText}</Link>
             </Button>

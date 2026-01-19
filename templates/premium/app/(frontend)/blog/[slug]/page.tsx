@@ -10,6 +10,9 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Calendar, User, ChevronRight, ArrowLeft, ArrowRight } from 'lucide-react'
 
+// Revalidate the page every 60 seconds (ISR caching)
+export const revalidate = 60
+
 interface BlogPostPageProps {
   params: Promise<{ slug: string }>
 }
@@ -332,51 +335,48 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
             <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 max-w-5xl mx-auto">
               {relatedPosts.map((relatedPost) => (
-                <Card
-                  key={relatedPost.id}
-                  className="group overflow-hidden transition-all hover:shadow-lg"
-                >
-                  <div className="relative aspect-[16/10] overflow-hidden">
-                    {relatedPost.featuredImage?.url ? (
-                      <Image
-                        src={relatedPost.featuredImage.url}
-                        alt={relatedPost.featuredImage.alt || relatedPost.title}
-                        fill
-                        className="object-cover transition-transform group-hover:scale-105"
-                      />
-                    ) : (
-                      <div className="absolute inset-0 bg-gradient-to-br from-navy to-navy-light flex items-center justify-center">
-                        <span className="font-heading text-xl font-bold text-gold/50">
-                          Blog
-                        </span>
-                      </div>
-                    )}
-                  </div>
+                <Link key={relatedPost.id} href={`/blog/${relatedPost.slug}`} className="block">
+                  <Card className="group overflow-hidden transition-all hover:shadow-lg h-full cursor-pointer">
+                    <div className="relative aspect-[16/10] overflow-hidden">
+                      {relatedPost.featuredImage?.url ? (
+                        <Image
+                          src={relatedPost.featuredImage.url}
+                          alt={relatedPost.featuredImage.alt || relatedPost.title}
+                          fill
+                          className="object-cover transition-transform group-hover:scale-105"
+                        />
+                      ) : (
+                        <div className="absolute inset-0 bg-gradient-to-br from-navy to-navy-light flex items-center justify-center">
+                          <span className="font-heading text-xl font-bold text-gold/50">
+                            Blog
+                          </span>
+                        </div>
+                      )}
+                    </div>
 
-                  <CardHeader className="pb-2">
-                    {relatedPost.publishedDate && (
-                      <div className="flex items-center gap-2 text-muted-foreground text-sm">
-                        <Calendar className="h-4 w-4" />
-                        <time dateTime={relatedPost.publishedDate}>
-                          {formatDate(relatedPost.publishedDate)}
-                        </time>
-                      </div>
-                    )}
-                  </CardHeader>
+                    <CardHeader className="pb-2">
+                      {relatedPost.publishedDate && (
+                        <div className="flex items-center gap-2 text-muted-foreground text-sm">
+                          <Calendar className="h-4 w-4" />
+                          <time dateTime={relatedPost.publishedDate}>
+                            {formatDate(relatedPost.publishedDate)}
+                          </time>
+                        </div>
+                      )}
+                    </CardHeader>
 
-                  <CardContent>
-                    <CardTitle className="font-heading text-lg group-hover:text-gold transition-colors">
-                      <Link href={`/blog/${relatedPost.slug}`}>
+                    <CardContent>
+                      <CardTitle className="font-heading text-lg group-hover:text-gold transition-colors">
                         {relatedPost.title}
-                      </Link>
-                    </CardTitle>
-                    {relatedPost.author && (
-                      <Badge variant="secondary" className="text-xs mt-2">
-                        By {relatedPost.author}
-                      </Badge>
-                    )}
-                  </CardContent>
-                </Card>
+                      </CardTitle>
+                      {relatedPost.author && (
+                        <Badge variant="secondary" className="text-xs mt-2">
+                          By {relatedPost.author}
+                        </Badge>
+                      )}
+                    </CardContent>
+                  </Card>
+                </Link>
               ))}
             </div>
           </div>
