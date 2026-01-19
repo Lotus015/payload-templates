@@ -337,8 +337,9 @@
       "tests": [
         "cd templates/boutique && pnpm install && pnpm build"
       ],
-      "passes": false,
-      "completedAt": null
+      "passes": true,
+      "completedAt": "2026-01-19T17:25:04Z",
+      "durationSecs": 343
     },
     {
       "id": "S18",
