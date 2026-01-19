@@ -1,0 +1,164 @@
+@import "tailwindcss";
+
+/*
+ * Traditional Theme Colors
+ * Burgundy: #800020 → HSL 345 100% 25%
+ * Gold: #d4af37 → HSL 44 64% 52%
+ * Cream: #fff8f0 → HSL 30 100% 97%
+ */
+
+@layer base {
+  :root {
+    /* Traditional Theme - Light Mode */
+    --background: 30 100% 99%;
+    --foreground: 345 100% 25%;
+    --card: 30 100% 99%;
+    --card-foreground: 345 100% 25%;
+    --popover: 30 100% 99%;
+    --popover-foreground: 345 100% 25%;
+    --primary: 345 100% 25%;
+    --primary-foreground: 30 100% 97%;
+    --secondary: 44 64% 52%;
+    --secondary-foreground: 345 100% 20%;
+    --muted: 30 30% 95%;
+    --muted-foreground: 345 40% 40%;
+    --accent: 44 64% 52%;
+    --accent-foreground: 345 100% 20%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 30 20% 88%;
+    --input: 30 20% 88%;
+    --ring: 44 64% 52%;
+    --chart-1: 345 100% 25%;
+    --chart-2: 44 64% 52%;
+    --chart-3: 345 80% 35%;
+    --chart-4: 44 64% 65%;
+    --chart-5: 345 50% 45%;
+    --radius: 0.5rem;
+
+    /* Traditional Theme Extended Colors */
+    --traditional-burgundy: 345 100% 25%;
+    --traditional-burgundy-light: 345 80% 35%;
+    --traditional-burgundy-dark: 345 100% 18%;
+    --traditional-gold: 44 64% 52%;
+    --traditional-gold-light: 44 70% 65%;
+    --traditional-gold-dark: 44 60% 42%;
+    --traditional-cream: 30 100% 97%;
+  }
+  .dark {
+    /* Traditional Theme - Dark Mode */
+    --background: 345 100% 10%;
+    --foreground: 30 100% 97%;
+    --card: 345 80% 14%;
+    --card-foreground: 30 100% 97%;
+    --popover: 345 80% 14%;
+    --popover-foreground: 30 100% 97%;
+    --primary: 44 64% 52%;
+    --primary-foreground: 345 100% 18%;
+    --secondary: 345 80% 30%;
+    --secondary-foreground: 30 100% 97%;
+    --muted: 345 60% 20%;
+    --muted-foreground: 30 50% 65%;
+    --accent: 44 64% 52%;
+    --accent-foreground: 345 100% 18%;
+    --destructive: 0 62.8% 50%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 345 50% 22%;
+    --input: 345 50% 22%;
+    --ring: 44 64% 52%;
+    --chart-1: 44 64% 52%;
+    --chart-2: 345 80% 40%;
+    --chart-3: 44 70% 65%;
+    --chart-4: 345 60% 50%;
+    --chart-5: 44 50% 45%;
+
+    /* Traditional Theme Extended Colors - Dark Mode */
+    --traditional-burgundy: 345 100% 25%;
+    --traditional-burgundy-light: 345 80% 35%;
+    --traditional-burgundy-dark: 345 100% 18%;
+    --traditional-gold: 44 64% 52%;
+    --traditional-gold-light: 44 70% 65%;
+    --traditional-gold-dark: 44 60% 42%;
+    --traditional-cream: 30 100% 97%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@theme inline {
+  /* Font family definitions */
+  --font-sans: var(--font-lora), ui-serif, Georgia, serif;
+  --font-serif: var(--font-merriweather), ui-serif, Georgia, serif;
+  --font-heading: var(--font-merriweather), ui-serif, Georgia, serif;
+  --font-body: var(--font-lora), ui-serif, Georgia, serif;
+
+  /* shadcn/ui base color mappings */
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+  --color-chart-1: hsl(var(--chart-1));
+  --color-chart-2: hsl(var(--chart-2));
+  --color-chart-3: hsl(var(--chart-3));
+  --color-chart-4: hsl(var(--chart-4));
+  --color-chart-5: hsl(var(--chart-5));
+
+  /* Traditional Theme Color Palette for Tailwind */
+  --color-burgundy: hsl(var(--traditional-burgundy));
+  --color-burgundy-light: hsl(var(--traditional-burgundy-light));
+  --color-burgundy-dark: hsl(var(--traditional-burgundy-dark));
+  --color-gold: hsl(var(--traditional-gold));
+  --color-gold-light: hsl(var(--traditional-gold-light));
+  --color-gold-dark: hsl(var(--traditional-gold-dark));
+  --color-cream: hsl(var(--traditional-cream));
+
+  /* Radius values */
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+
+  /* Accordion animations */
+  --animate-accordion-down: accordion-down 0.2s ease-out;
+  --animate-accordion-up: accordion-up 0.2s ease-out;
+
+  @keyframes accordion-down {
+    from {
+      height: 0;
+    }
+    to {
+      height: var(--radix-accordion-content-height);
+    }
+  }
+
+  @keyframes accordion-up {
+    from {
+      height: var(--radix-accordion-content-height);
+    }
+    to {
+      height: 0;
+    }
+  }
+}

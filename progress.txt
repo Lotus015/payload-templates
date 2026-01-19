@@ -168,3 +168,35 @@ Learnings:
 - ContactSection form from S11 already submits to /api/contact endpoint - no frontend changes needed
 - Pattern: API routes separate from Payload's (payload) route group for custom business logic
 - Test passed: cd templates/premium && pnpm build
+
+=== Iteration 14 - S14 - 2026-01-19 ===
+Status: COMPLETE
+Learnings:
+- Seed script uses Payload Local API via getPayload({ config }) same as other server-side code
+- updateGlobal() method for seeding globals (site-settings), doesn't require checking for existing
+- Idempotency pattern: find() with where clause to check existing, then create() or update() accordingly
+- tsx package (^4.7.0) provides simple TypeScript execution for scripts via "pnpm seed"
+- Lexical rich text content structure: root.children array with paragraph/heading types, each containing children with text
+- Lexical root object needs: type, children, direction, format, indent properties
+- Serbian content for Advokat Petrovic law firm includes: 6 services, 3 team members, 3 testimonials, 2 blog posts
+- Services use icon names matching lucide-react icons defined in ServicesSection component mapping
+- Blog posts use date format 'YYYY-MM-DD' for publishedDate field
+- Pattern: Console logging during seed helps track progress and debug issues
+- Test passed: cd templates/premium && pnpm build
+
+=== Iteration 15 - S15 - 2026-01-19 ===
+Status: COMPLETE
+Learnings:
+- Template duplication process: copy premium folder, exclude node_modules/.next/tsbuildinfo
+- Hex to HSL conversion for Traditional theme: Burgundy #800020 → HSL 345 100% 25%
+- Merriweather font requires explicit weight array: ['300', '400', '700', '900']
+- Lora font works with default variable weight configuration
+- CSS variables renamed from --premium-* to --traditional-* for theme consistency
+- Tailwind color utility classes renamed from navy/navy-light/navy-dark to burgundy/burgundy-light/burgundy-dark
+- All component files using theme colors (HeroSection, ServicesSection, etc.) need systematic find/replace
+- Page files (services/[slug], blog/page, blog/[slug], contact) also reference theme colors
+- ContactSection form theme value updated from 'premium' to 'traditional'
+- Metadata title/description strings updated from "Premium" to "Traditional" throughout
+- CLAUDE.md operating contract updated with Traditional theme specifics
+- Peer dependency warning for Next.js 16 with Payload 3.x continues but doesn't affect build
+- Test passed: cd templates/traditional && pnpm install && pnpm build
