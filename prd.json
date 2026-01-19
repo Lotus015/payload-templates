@@ -458,8 +458,8 @@
         "cd templates/premium && pnpm lint && pnpm typecheck && pnpm build && cd ../traditional && pnpm lint && pnpm typecheck && pnpm build && cd ../modern && pnpm lint && pnpm typecheck && pnpm build && cd ../boutique && pnpm lint && pnpm typecheck && pnpm build"
       ],
       "passes": true,
-      "completedAt": "2026-01-19T18:49:30Z",
-      "durationSecs": 360
+      "completedAt": "2026-01-19T17:50:15Z",
+      "durationSecs": 648
     },
     {
       "id": "S24",
