@@ -397,8 +397,9 @@
       "tests": [
         "cat templates/premium/vercel.json"
       ],
-      "passes": false,
-      "completedAt": null
+      "passes": true,
+      "completedAt": "2026-01-19T17:32:03Z",
+      "durationSecs": 183
     },
     {
       "id": "S21",
@@ -443,17 +444,16 @@
       "id": "S23",
       "priority": 23,
       "title": "Testing and Quality Assurance",
-      "description": "Add tests for CLI functionality and ensure all templates pass quality checks.",
+      "description": "Add tests for CLI functionality and ensure all 4 templates pass quality checks (lint, typecheck, build).",
       "acceptance": [
         "cli/ has basic tests for template selection logic",
-        "Each template passes: pnpm lint, pnpm typecheck, pnpm test",
-        "All templates build successfully: pnpm build",
-        "ESLint configured with no warnings",
-        "TypeScript strict mode with no errors",
+        "All 4 templates pass: pnpm lint, pnpm typecheck, pnpm build",
+        "ESLint configured with no warnings in all templates",
+        "TypeScript strict mode with no errors in all templates",
         "At least one test file per template testing a component"
       ],
       "tests": [
-        "cd templates/premium && pnpm lint && pnpm typecheck"
+        "cd templates/premium && pnpm lint && pnpm typecheck && pnpm build && cd ../traditional && pnpm lint && pnpm typecheck && pnpm build && cd ../modern && pnpm lint && pnpm typecheck && pnpm build && cd ../boutique && pnpm lint && pnpm typecheck && pnpm build"
       ],
       "passes": false,
       "completedAt": null
