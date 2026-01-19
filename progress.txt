@@ -282,3 +282,31 @@ Learnings:
 - Modern template was missing .env.example - fixed during this story
 - Each template README customized with theme-specific CSS variable names
 - Test passed: cat templates/premium/vercel.json
+
+=== Iteration 21 - S21 - 2026-01-19 17:34:06 UTC ===
+Status: COMPLETE
+Learnings:
+- Created docs/ directory as first documentation location in project
+- Lightsail deployment guide covers full stack: PostgreSQL 16, Node.js 20, pnpm, PM2, Nginx, SSL
+- Ubuntu 22.04 LTS recommended for Lightsail (Long Term Support)
+- PostgreSQL 16 requires adding apt repository for latest version on Ubuntu 22.04
+- PM2 ecosystem.config.cjs file uses CommonJS format for compatibility with ESM projects
+- Nginx reverse proxy pattern: proxy_pass to localhost:3000 with proper headers
+- Let's Encrypt certbot with nginx plugin handles SSL configuration automatically
+- Database backup script with pg_dump + gzip + retention period is robust pattern
+- Crontab scheduling for automated backups (0 2 * * * for 2 AM daily)
+- Lightsail automatic snapshots provide full instance disaster recovery
+- Documentation includes troubleshooting section for common issues (502 gateway, DB connection, SSL renewal)
+- Test passed: test -f docs/lightsail-deployment.md
+
+=== Iteration 22 - S22 - 2026-01-19 17:45:00 UTC ===
+Status: COMPLETE
+Learnings:
+- Template README.md files already existed with good structure from S20 (features, requirements, installation, deployment)
+- Created cli/README.md with comprehensive usage instructions, examples, template descriptions, and troubleshooting
+- Enhanced root README.md with project overview, quick start, template comparison table, and links to all docs
+- Enhanced all 4 CLAUDE.md files with complete directory structure, code patterns, CMS collections, and API endpoints
+- Documentation follows consistent structure across templates: Overview, Theme, Directory Structure, Commands, Guidelines
+- CLAUDE.md serves as AI assistant operating contract with theme-specific color variables and HSL values
+- Acceptance criteria included template README check but existing README was already comprehensive
+- Test passed: test -f templates/premium/README.md && test -f cli/README.md && test -f README.md
