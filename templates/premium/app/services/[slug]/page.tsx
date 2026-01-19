@@ -127,7 +127,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
     notFound()
   }
 
-  const Icon = getIcon(service.icon)
+  const ServiceIcon = getIcon(service.icon)
 
   return (
     <MainLayout>
@@ -156,7 +156,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
         <div className="container mx-auto px-4">
           <div className="max-w-3xl">
             <div className="mb-6 w-16 h-16 rounded-lg bg-gold flex items-center justify-center">
-              <Icon className="h-8 w-8 text-navy" />
+              <ServiceIcon className="h-8 w-8 text-navy" />
             </div>
             <h1 className="font-heading text-4xl font-bold tracking-tight text-cream sm:text-5xl">
               {service.title}

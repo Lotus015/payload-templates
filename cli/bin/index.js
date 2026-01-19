@@ -6,34 +6,8 @@ import degit from 'degit';
 import fs from 'fs';
 import path from 'path';
 import { spawn } from 'child_process';
-
-// Template definitions with colors and use cases
-const templates = [
-  {
-    value: 'premium',
-    title: 'Premium',
-    description: 'Navy + Gold - Elegant, high-end law firms',
-    colors: '#1a1f36 + #d4af37'
-  },
-  {
-    value: 'traditional',
-    title: 'Traditional',
-    description: 'Burgundy + Gold - Classic, established practices',
-    colors: '#800020 + #d4af37'
-  },
-  {
-    value: 'modern',
-    title: 'Modern',
-    description: 'Blue + White - Clean, contemporary firms',
-    colors: '#4a90e2 + #ffffff'
-  },
-  {
-    value: 'boutique',
-    title: 'Boutique',
-    description: 'Green + Beige - Specialized, personal practices',
-    colors: '#2c5f2d + #e8dcc4'
-  }
-];
+import { templates, getTemplateByValue } from '../lib/templates.js';
+import { validateProjectName } from '../lib/validation.js';
 
 // Help text
 const helpText = `
@@ -67,24 +41,6 @@ function showWelcome() {
   console.log();
   console.log(kleur.gray('  Create a law firm website with Next.js, Payload CMS, and shadcn/ui'));
   console.log();
-}
-
-// Validate project name
-function validateProjectName(name) {
-  if (!name || name.trim().length === 0) {
-    return 'Project name is required';
-  }
-  if (name.includes(' ')) {
-    return 'Project name cannot contain spaces';
-  }
-  if (!/^[a-zA-Z0-9_-]+$/.test(name)) {
-    return 'Project name can only contain letters, numbers, hyphens, and underscores';
-  }
-  const targetDir = path.resolve(process.cwd(), name);
-  if (fs.existsSync(targetDir)) {
-    return `Directory "${name}" already exists`;
-  }
-  return true;
 }
 
 // Run a shell command with output
@@ -177,7 +133,7 @@ async function main() {
     return;
   }
 
-  const selectedTemplate = templates.find(t => t.value === templateResponse.template);
+  const selectedTemplate = getTemplateByValue(templateResponse.template);
 
   // Step 2: Project name
   let initialProjectName = args[0] || '';
