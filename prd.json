@@ -1,0 +1,414 @@
+{
+  "project": "Payload Templates CLI",
+  "branchName": "main",
+  "description": "Create a CLI tool and 4 law firm website templates using Next.js 16 + React 19 + Payload CMS 3.x + shadcn/ui. Each template represents a distinct visual theme (Premium, Traditional, Modern, Boutique) with pre-configured CMS collections and demo content.",
+  "userStories": [
+    {
+      "id": "S1",
+      "priority": 1,
+      "title": "Initialize Repository Structure",
+      "description": "Create the monorepo structure with pnpm workspaces, root configuration files, and placeholder directories for CLI and templates.",
+      "acceptance": [
+        "Root package.json with workspaces configuration",
+        "pnpm-workspace.yaml defining cli/ and templates/* as workspaces",
+        ".gitignore with Node.js, Next.js, and environment file patterns",
+        ".nvmrc specifying Node.js 20",
+        "Root README.md with project overview",
+        "Empty directories: cli/, templates/premium/, templates/traditional/, templates/modern/, templates/boutique/"
+      ],
+      "tests": ["pnpm install"],
+      "passes": false,
+      "completedAt": null
+    },
+    {
+      "id": "S2",
+      "priority": 2,
+      "title": "Create CLI Package Scaffolding",
+      "description": "Set up the CLI package with dependencies (degit, prompts, kleur) and basic structure. The CLI will allow users to select a template and create a new project.",
+      "acceptance": [
+        "cli/package.json with name 'payload-templates', bin entry pointing to bin/index.js",
+        "Dependencies: degit, prompts, kleur",
+        "cli/bin/index.js with shebang and ES module setup",
+        "Basic welcome message displays when running the CLI",
+        "package.json includes type: module"
+      ],
+      "tests": ["node cli/bin/index.js"],
+      "passes": false,
+      "completedAt": null
+    },
+    {
+      "id": "S3",
+      "priority": 3,
+      "title": "Create Base Template Structure (Premium)",
+      "description": "Create the Premium template as the base template with Next.js 16, React 19, TypeScript, Tailwind CSS v4, and basic project structure.",
+      "acceptance": [
+        "templates/premium/package.json with all required dependencies",
+        "Next.js 16 + React 19 + TypeScript configuration",
+        "Tailwind CSS v4 setup with PostCSS",
+        "tsconfig.json with strict mode enabled",
+        "Basic app/ directory with layout.tsx and page.tsx",
+        ".env.example with required environment variables",
+        "CLAUDE.md operating contract"
+      ],
+      "tests": ["cd templates/premium && pnpm install && pnpm build"],
+      "passes": false,
+      "completedAt": null
+    },
+    {
+      "id": "S4",
+      "priority": 4,
+      "title": "Install and Configure Payload CMS 3.x",
+      "description": "Add Payload CMS 3.x to the Premium template with PostgreSQL adapter configuration. Set up the admin panel at /admin route.",
+      "acceptance": [
+        "Payload CMS 3.x installed with @payloadcms/db-postgres adapter",
+        "payload.config.ts with basic configuration",
+        "Database connection configured via DATABASE_URL environment variable",
+        "Admin panel accessible at /admin route",
+        "Support for both Vercel (connection pooling) and direct PostgreSQL connections",
+        "Environment variables documented in .env.example"
+      ],
+      "tests": ["cd templates/premium && pnpm build"],
+      "passes": false,
+      "completedAt": null
+    },
+    {
+      "id": "S5",
+      "priority": 5,
+      "title": "Define Payload Collections - Core Content",
+      "description": "Create Payload collections for the core website content: Pages (Homepage), Services (Practice Areas), and Media (uploads).",
+      "acceptance": [
+        "collections/Pages.ts with fields: title, slug, hero (group), content (richText)",
+        "collections/Services.ts with fields: title, slug, description, icon, order",
+        "collections/Media.ts for image uploads with alt text",
+        "Collections registered in payload.config.ts",
+        "TypeScript types generated for all collections"
+      ],
+      "tests": ["cd templates/premium && pnpm build"],
+      "passes": false,
+      "completedAt": null
+    },
+    {
+      "id": "S6",
+      "priority": 6,
+      "title": "Define Payload Collections - Extended Content",
+      "description": "Create Payload collections for team members, testimonials, blog posts, and contact form submissions.",
+      "acceptance": [
+        "collections/Team.ts with fields: name, role, bio, photo (relationship to Media), order",
+        "collections/Testimonials.ts with fields: clientName, clientRole, content, rating, order",
+        "collections/BlogPosts.ts with fields: title, slug, excerpt, content (richText), featuredImage, publishedDate, author",
+        "collections/ContactSubmissions.ts with fields: name, email, phone, message, theme, createdAt, read (boolean)",
+        "All collections registered in payload.config.ts"
+      ],
+      "tests": ["cd templates/premium && pnpm build"],
+      "passes": false,
+      "completedAt": null
+    },
+    {
+      "id": "S7",
+      "priority": 7,
+      "title": "Create Global Settings Collection",
+      "description": "Create a Payload global for site-wide settings like firm name, contact info, social links, and theme configuration.",
+      "acceptance": [
+        "globals/SiteSettings.ts with fields: firmName, tagline, logo, contactEmail, contactPhone, address, socialLinks (array), workingHours",
+        "globals/ThemeSettings.ts with fields: primaryColor, secondaryColor, accentColor, fontHeading, fontBody",
+        "Globals registered in payload.config.ts",
+        "Default values provided for required fields"
+      ],
+      "tests": ["cd templates/premium && pnpm build"],
+      "passes": false,
+      "completedAt": null
+    },
+    {
+      "id": "S8",
+      "priority": 8,
+      "title": "Install shadcn/ui Components",
+      "description": "Set up shadcn/ui in the Premium template with commonly needed components for a law firm website.",
+      "acceptance": [
+        "shadcn/ui initialized with components.json configuration",
+        "Components installed: button, card, form, input, textarea, accordion, navigation-menu, sheet, separator, badge",
+        "components/ui/ directory with all installed components",
+        "Tailwind configured for shadcn/ui (CSS variables mode)",
+        "lib/utils.ts with cn() helper function"
+      ],
+      "tests": ["cd templates/premium && pnpm build"],
+      "passes": false,
+      "completedAt": null
+    },
+    {
+      "id": "S9",
+      "priority": 9,
+      "title": "Create Premium Theme Styling",
+      "description": "Apply the Premium theme (Navy #1a1f36 + Gold #d4af37) to the template with fonts (Playfair Display + Inter) and CSS variables.",
+      "acceptance": [
+        "CSS variables defined in globals.css for theme colors",
+        "Playfair Display and Inter fonts loaded via next/font/google",
+        "Tailwind theme extended with premium color palette",
+        "Dark/light mode support using CSS variables",
+        "Premium theme applied to all shadcn components"
+      ],
+      "tests": ["cd templates/premium && pnpm build"],
+      "passes": false,
+      "completedAt": null
+    },
+    {
+      "id": "S10",
+      "priority": 10,
+      "title": "Create Frontend Components - Layout",
+      "description": "Create the layout components for the Premium template: Header with navigation, Footer, and main layout wrapper.",
+      "acceptance": [
+        "components/layout/Header.tsx with logo, navigation menu, mobile menu (Sheet), contact CTA button",
+        "components/layout/Footer.tsx with firm info, navigation links, contact info, copyright",
+        "components/layout/MainLayout.tsx wrapping Header + children + Footer",
+        "Navigation items fetched from Payload (Services collection for menu)",
+        "Mobile-responsive design using Tailwind breakpoints"
+      ],
+      "tests": ["cd templates/premium && pnpm build"],
+      "passes": false,
+      "completedAt": null
+    },
+    {
+      "id": "S11",
+      "priority": 11,
+      "title": "Create Frontend Components - Homepage Sections",
+      "description": "Create the homepage section components that display content from Payload CMS.",
+      "acceptance": [
+        "features/home/components/HeroSection.tsx - Hero with headline, subtext, CTA buttons, background",
+        "features/home/components/ServicesSection.tsx - Grid of practice areas from Services collection",
+        "features/home/components/AboutSection.tsx - Firm overview with image",
+        "features/home/components/TestimonialsSection.tsx - Client testimonials carousel/grid",
+        "features/home/components/BlogSection.tsx - Latest 2-3 blog posts",
+        "features/home/components/ContactSection.tsx - Contact form + info",
+        "All sections fetch data from Payload collections"
+      ],
+      "tests": ["cd templates/premium && pnpm build"],
+      "passes": false,
+      "completedAt": null
+    },
+    {
+      "id": "S12",
+      "priority": 12,
+      "title": "Create Homepage and Dynamic Pages",
+      "description": "Create the Next.js pages that compose the homepage and handle dynamic routes for services and blog posts.",
+      "acceptance": [
+        "app/page.tsx composing all homepage sections with data fetching",
+        "app/services/[slug]/page.tsx for individual service pages",
+        "app/blog/page.tsx for blog listing",
+        "app/blog/[slug]/page.tsx for individual blog posts",
+        "app/contact/page.tsx for dedicated contact page",
+        "Server Components for data fetching, Client Components where needed",
+        "SEO metadata on all pages (title, description, og:image)"
+      ],
+      "tests": ["cd templates/premium && pnpm build"],
+      "passes": false,
+      "completedAt": null
+    },
+    {
+      "id": "S13",
+      "priority": 13,
+      "title": "Create Contact Form Submission API",
+      "description": "Create the API endpoint to handle contact form submissions, storing them in the ContactSubmissions collection.",
+      "acceptance": [
+        "app/api/contact/route.ts handling POST requests",
+        "Zod validation for form data (name, email, phone, message, theme)",
+        "Creates entry in ContactSubmissions collection via Payload Local API",
+        "Returns appropriate success/error responses",
+        "Rate limiting consideration (basic)",
+        "ContactSection form submits to this endpoint"
+      ],
+      "tests": ["cd templates/premium && pnpm build"],
+      "passes": false,
+      "completedAt": null
+    },
+    {
+      "id": "S14",
+      "priority": 14,
+      "title": "Create Demo Content Seed Script",
+      "description": "Create a script to seed the database with demo content for a sample law firm Advokat Petrovic.",
+      "acceptance": [
+        "scripts/seed.ts with demo content for all collections",
+        "SiteSettings populated with firm name, contact info",
+        "6 Services (Civil, Criminal, Business, Labor, Family, Real Estate Law)",
+        "3 Team members with photos",
+        "3 Testimonials",
+        "2 Blog posts about Serbian law",
+        "Homepage content populated",
+        "Script runnable via pnpm seed",
+        "Idempotent (can run multiple times safely)"
+      ],
+      "tests": ["cd templates/premium && pnpm build"],
+      "passes": false,
+      "completedAt": null
+    },
+    {
+      "id": "S15",
+      "priority": 15,
+      "title": "Create Traditional Template (Burgundy + Gold)",
+      "description": "Duplicate Premium template and apply Traditional theme styling (Burgundy #800020 + Gold + Cream, Merriweather + Lora fonts).",
+      "acceptance": [
+        "templates/traditional/ is a complete copy of premium template",
+        "CSS variables updated for Traditional color palette",
+        "Fonts changed to Merriweather (headings) and Lora (body)",
+        "Theme name updated in package.json and config",
+        "All components render correctly with new theme",
+        "Demo content seed uses same data structure"
+      ],
+      "tests": ["cd templates/traditional && pnpm install && pnpm build"],
+      "passes": false,
+      "completedAt": null
+    },
+    {
+      "id": "S16",
+      "priority": 16,
+      "title": "Create Modern Template (Blue + White)",
+      "description": "Duplicate Premium template and apply Modern theme styling (Light blue #4a90e2 + White space, Montserrat + Open Sans fonts).",
+      "acceptance": [
+        "templates/modern/ is a complete copy of premium template",
+        "CSS variables updated for Modern color palette",
+        "Fonts changed to Montserrat (headings) and Open Sans (body)",
+        "Theme name updated in package.json and config",
+        "More whitespace and lighter visual weight",
+        "All components render correctly with new theme"
+      ],
+      "tests": ["cd templates/modern && pnpm install && pnpm build"],
+      "passes": false,
+      "completedAt": null
+    },
+    {
+      "id": "S17",
+      "priority": 17,
+      "title": "Create Boutique Template (Green + Beige)",
+      "description": "Duplicate Premium template and apply Boutique theme styling (Deep green #2c5f2d + Beige #e8dcc4, Cormorant + Raleway fonts).",
+      "acceptance": [
+        "templates/boutique/ is a complete copy of premium template",
+        "CSS variables updated for Boutique color palette",
+        "Fonts changed to Cormorant (headings) and Raleway (body)",
+        "Theme name updated in package.json and config",
+        "Elegant, specialized aesthetic",
+        "All components render correctly with new theme"
+      ],
+      "tests": ["cd templates/boutique && pnpm install && pnpm build"],
+      "passes": false,
+      "completedAt": null
+    },
+    {
+      "id": "S18",
+      "priority": 18,
+      "title": "Implement CLI Template Selection",
+      "description": "Implement the interactive CLI flow: welcome message, template selection, project name input, and template cloning.",
+      "acceptance": [
+        "Welcome message with styled text",
+        "Template selection prompt with 4 options (Premium, Traditional, Modern, Boutique)",
+        "Each option shows color description and use case",
+        "Project name prompt with validation (no spaces, no existing directory)",
+        "Uses degit to clone selected template from Lotus015/payload-templates/templates/{name}",
+        "Progress indicators during cloning"
+      ],
+      "tests": ["node cli/bin/index.js --help"],
+      "passes": false,
+      "completedAt": null
+    },
+    {
+      "id": "S19",
+      "priority": 19,
+      "title": "Implement CLI Post-Clone Setup",
+      "description": "After cloning, run post-setup steps: install dependencies, update package.json name, display next steps.",
+      "acceptance": [
+        "Runs pnpm install in new project directory",
+        "Updates package.json name to user's project name",
+        "Creates .env file from .env.example",
+        "Displays success message with next steps",
+        "Next steps include: cd into project, set up DATABASE_URL, run pnpm seed, run pnpm dev",
+        "Handles errors gracefully with helpful messages"
+      ],
+      "tests": ["node cli/bin/index.js --help"],
+      "passes": false,
+      "completedAt": null
+    },
+    {
+      "id": "S20",
+      "priority": 20,
+      "title": "Add Vercel Deployment Configuration",
+      "description": "Add Vercel deployment configuration to all templates for easy deployment.",
+      "acceptance": [
+        "vercel.json in each template with build settings",
+        "Build command: pnpm build",
+        "Environment variables documented for Vercel",
+        "DATABASE_URL with connection pooling parameter for Vercel Postgres compatibility",
+        "PAYLOAD_SECRET environment variable required",
+        "README section on Vercel deployment"
+      ],
+      "tests": ["cat templates/premium/vercel.json"],
+      "passes": false,
+      "completedAt": null
+    },
+    {
+      "id": "S21",
+      "priority": 21,
+      "title": "Add Lightsail Deployment Documentation",
+      "description": "Document the process for deploying to AWS Lightsail (full stack on single instance).",
+      "acceptance": [
+        "docs/lightsail-deployment.md with step-by-step guide",
+        "PostgreSQL installation and setup on Lightsail",
+        "Node.js and pnpm installation",
+        "PM2 process manager setup",
+        "Nginx reverse proxy configuration",
+        "SSL certificate setup with Let's Encrypt",
+        "Environment variables configuration",
+        "Database backup recommendations"
+      ],
+      "tests": ["test -f docs/lightsail-deployment.md"],
+      "passes": false,
+      "completedAt": null
+    },
+    {
+      "id": "S22",
+      "priority": 22,
+      "title": "Create Template README and Documentation",
+      "description": "Create comprehensive README for each template and the CLI package.",
+      "acceptance": [
+        "Each template has README.md with: features, requirements, installation, configuration, development, deployment, customization",
+        "cli/README.md with usage instructions and examples",
+        "Root README.md with project overview, quick start, and links to templates",
+        "CLAUDE.md in each template with operating contract",
+        "All documentation in English"
+      ],
+      "tests": ["test -f templates/premium/README.md && test -f cli/README.md && test -f README.md"],
+      "passes": false,
+      "completedAt": null
+    },
+    {
+      "id": "S23",
+      "priority": 23,
+      "title": "Testing and Quality Assurance",
+      "description": "Add tests for CLI functionality and ensure all templates pass quality checks.",
+      "acceptance": [
+        "cli/ has basic tests for template selection logic",
+        "Each template passes: pnpm lint, pnpm typecheck, pnpm test",
+        "All templates build successfully: pnpm build",
+        "ESLint configured with no warnings",
+        "TypeScript strict mode with no errors",
+        "At least one test file per template testing a component"
+      ],
+      "tests": ["cd templates/premium && pnpm lint && pnpm typecheck"],
+      "passes": false,
+      "completedAt": null
+    },
+    {
+      "id": "S24",
+      "priority": 24,
+      "title": "Publish CLI to npm",
+      "description": "Prepare and publish the CLI package to npm as payload-templates.",
+      "acceptance": [
+        "cli/package.json has correct metadata (name, version, description, keywords, repository, author, license)",
+        "Version set to 1.0.0",
+        "README included in package",
+        ".npmignore excludes unnecessary files",
+        "Package can be built with npm pack",
+        "npx payload-templates displays welcome message"
+      ],
+      "tests": ["cd cli && npm pack --dry-run"],
+      "passes": false,
+      "completedAt": null
+    }
+  ]
+}
